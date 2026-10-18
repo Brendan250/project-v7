@@ -1,7 +1,7 @@
 {
     "id":  "cnr-compat",
     "name":  "CNR64 Compatibility",
-    "version":  "1.0.1",
+    "version":  "1.0.3",
     "kind":  "game",
     "description":  "Cops N Robbers 3.0.2 compatibility module for its legacy Unity 4.6 runtime.",
     "targets":  {
@@ -40,6 +40,10 @@
                    ],
     "payloadFiles":  [
                          "assets/pv7/compat.properties",
-                         "assets/pv7/host.properties"
+                         "assets/pv7/host.properties",
+                         "assets/bootstrap/CNRModManager.dll",
+                         "assets/bootstrap/CNRModManager.dll.sha256",
+                         "assets/bootstrap/repo-sources.txt",
+                         "assets/bootstrap/repo-sources.txt.sha256"
                      ]
 }
