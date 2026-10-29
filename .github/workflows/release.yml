@@ -118,6 +118,4 @@ jobs:
         with:
           subject-name: Project V7 Patcher ${{ steps.release.outputs.new_release_git_tag }}
           subject-path: app/build/outputs/apk/release/project-v7-patcher-*.apk
-
-# Do not dispatch MorpheApp's website or send Morphe FCM notifications.
-# PV7 can add its own site/FCM integration after ownership and credentials are verified.
+          
