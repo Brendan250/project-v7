@@ -31,6 +31,8 @@ The supported-app list is loaded from this repository. It is not hard-coded into
 
 Download the current Project V7 Android Patcher from the [Releases page](https://github.com/Jacqueb-1337/project-v7/releases/latest).
 
+**Package identity:** Starting with v1.33.4, Project V7 uses `me.jacqueb.projectv7`, a separate Android application from Morphe Manager (`app.morphe.manager`). The earlier PV7 production v1.33.3 mistakenly reused Morphe's package name; do not use that release to update Morphe. Older PV7 debug builds (`app.morphe.manager.debug`) also install separately and cannot be automatically upgraded to production.
+
 For supported apps, Project V7 can use:
 
 - an APK you already have
@@ -107,6 +109,23 @@ Project V7 still supports optional third-party patch bundles from the upstream M
 A bundle's `Patcher-Version` requirement describes the **underlying patch engine**, not the version of the Project V7 Android app. For example, a source requiring engine 2.0.0 cannot be used when the installed Project V7 build includes engine 1.15.0. This does **not** prove that a newer Project V7 release is available.
 
 You can [check Project V7 releases](https://github.com/Jacqueb-1337/project-v7/releases) for a compatible engine or choose a different patch source. Installing Morphe Manager would **not** update Project V7. Project V7's own game compatibility modules live in the [catalog](catalog/README.md).
+
+## Guest storage and OBB expansion files
+
+Every PV7-generated wrapper exposes **PV7 Game Storage** in Android's Files
+picker, with **obb**, **data**, **cache** and **files** all stored under
+one app-private `GuestSharedStorage` directory. This does not grant access to other apps'
+protected directories or make unsupported engines playable.
+
+See [guest storage and OBB mapping](docs/guest-storage.md).
+
+## Native compatibility backends
+
+PV7's catalog can accept game entries for many Android APKs, but its current
+runtime only builds legacy ARMv7 **Unity 4.6 Mono** wrappers. A Cocos2d-x game
+such as Regular Show: Best Park in the Universe needs a separate native
+compatibility backend, not the existing CNR Unity wrapper.
+See [engine compatibility and diagnostics](docs/compatibility-backends.md).
 
 ## Releases and updates
 

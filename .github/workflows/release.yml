@@ -100,6 +100,22 @@ jobs:
           passphrase: ${{ secrets.GPG_PASSPHRASE }}
           fingerprint: ${{ vars.GPG_FINGERPRINT }}
 
+      - name: Verify PV7 release signing key before building
+        if: steps.prerequisites.outputs.ready == 'true'
+        shell: bash
+        env:
+          GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
+          GPG_FINGERPRINT: ${{ vars.GPG_FINGERPRINT }}
+        run: |
+          set -euo pipefail
+          printf 'PV7 GPG preflight' > "$RUNNER_TEMP/pv7-sign-test.txt"
+          PV7_CR=$(printf '\r')
+          normalized="${GPG_PASSPHRASE%$PV7_CR}"
+          printf '%s\r\n' "$normalized" | gpg --batch --yes --pinentry-mode loopback --passphrase-fd 0 \
+            --local-user "$GPG_FINGERPRINT" --detach-sign \
+            --output "$RUNNER_TEMP/pv7-sign-test.sig" "$RUNNER_TEMP/pv7-sign-test.txt"
+          gpg --verify "$RUNNER_TEMP/pv7-sign-test.sig" "$RUNNER_TEMP/pv7-sign-test.txt"
+          echo 'PV7 OpenPGP release signing verified.'
       - name: Publish signed PV7 release
         if: steps.prerequisites.outputs.ready == 'true'
         uses: cycjimmy/semantic-release-action@v6

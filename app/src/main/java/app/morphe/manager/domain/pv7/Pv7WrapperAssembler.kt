@@ -39,6 +39,16 @@ class Pv7WrapperAssembler {
     fun extractLegacyUnityGuest(inputApk: File, stagingRoot: File): Pv7GuestPayload {
         if (!inputApk.isFile) throw IOException("Input APK does not exist: " + inputApk)
 
+        val target = Pv7AppTarget(
+            packageId = "",
+            versionName = null,
+            abis = Pv7EngineDetector.detectAbis(inputApk),
+            engine = Pv7EngineDetector.detect(inputApk)
+        )
+        if (!Pv7GuestBackend.canBuild(target)) {
+            throw IOException("Unsupported PV7 guest format. " + Pv7GuestBackend.explanation(target))
+        }
+
         if (stagingRoot.exists()) stagingRoot.deleteRecursively()
         if (!stagingRoot.mkdirs() && !stagingRoot.isDirectory) {
             throw IOException("Could not create PV7 staging directory: " + stagingRoot)
@@ -163,7 +173,11 @@ class Pv7WrapperAssembler {
         selectedModules: List<Pv7ModuleManifest>,
         packageName: String
     ) {
-        val providers = selectedModules.flatMap { module ->
+        // Always expose a SAF root for user-managed guest saves, cache, and OBB.
+        // Its class is bundled in the generic host template as a secondary DEX.
+        // Game-specific providers (e.g. CNRMods) continue to work alongside it.
+        val genericProvider = "app.projectv7.wrapper.Pv7GameStorageDocumentsProvider" to ".gamefiles"
+        val providers = listOf(genericProvider) + selectedModules.flatMap { module ->
             module.operations.mapNotNull { operation ->
                 if (operation.type != "wrapper.addDocumentsProvider") return@mapNotNull null
                 val value = operation.value as? JsonObject

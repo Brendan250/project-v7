@@ -1,3 +1,35 @@
+# [1.34.0](https://github.com/Jacqueb-1337/project-v7/compare/v1.33.5...v1.34.0) (2026-10-29)
+
+
+### Features
+
+* **pv7:** expose private shared guest storage via Android Files ([b9eb130](https://github.com/Jacqueb-1337/project-v7/commit/b9eb13077c939cd214b2a972950d933911d00fe2))
+
+## [1.33.5](https://github.com/Jacqueb-1337/project-v7/compare/v1.33.4...v1.33.5) (2026-10-29)
+
+
+### Bug Fixes
+
+* **pv7:** detect Cocos2d-x and isolate Morphe patch sources ([d2c9e37](https://github.com/Jacqueb-1337/project-v7/commit/d2c9e37d7fe2cf74dd73ac1c61c5e63195a5de0b))
+
+## [1.33.4](https://github.com/Jacqueb-1337/project-v7/compare/v1.33.3...v1.33.4) (2026-10-29)
+
+
+### Bug Fixes
+
+* **android:** give Project V7 an independent app identity ([682f93f](https://github.com/Jacqueb-1337/project-v7/commit/682f93f4a24b9d008365abc1e9a714f920029dbc))
+
+## [1.33.3](https://github.com/Jacqueb-1337/project-v7/compare/v1.33.2...v1.33.3) (2026-10-29)
+
+
+### Bug Fixes
+
+* **pv7:** accept experimental APKs and generalize Unity 4.6 policy ([68123df](https://github.com/Jacqueb-1337/project-v7/commit/68123df70054050b8f0248b704750f4c16c47115))
+* **pv7:** correct inherited update routing and source compatibility warnings ([5f50c5b](https://github.com/Jacqueb-1337/project-v7/commit/5f50c5b8a74efe65df75df95665022e9bcc4a8f2))
+* **release:** correctly terminate GPG passphrase input ([9048326](https://github.com/Jacqueb-1337/project-v7/commit/9048326b894f05354bf23e7223d6d6fe71fe2b99))
+* **release:** decouple PV7 publishing and signing from Morphe ([5429c24](https://github.com/Jacqueb-1337/project-v7/commit/5429c24c570080a191b23e3a83c9f8786ad15a1d))
+* **release:** validate OpenPGP unlock before PV7 production builds ([74b653b](https://github.com/Jacqueb-1337/project-v7/commit/74b653bcfe5544f2c67f0c82d86abc75b1dbf3c0))
+
 # [1.33.0](https://github.com/MorpheApp/morphe-manager/compare/v1.32.0...v1.33.0) (2026-09-30)
 
 
