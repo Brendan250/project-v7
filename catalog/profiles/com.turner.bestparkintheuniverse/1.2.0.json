@@ -1,0 +1,16 @@
+{
+  "id": "regularshow-bestpark-1.2.0-untested",
+  "packageId": "com.turner.bestparkintheuniverse",
+  "versions": ["1.2.0"],
+  "abis": ["armeabi-v7a"],
+  "engines": ["unity"],
+  "engineVersions": ["4.6.1f1"],
+  "maintainer": "Brendan250",
+  "tested": false,
+  "recommendedModules": [
+    "core-compat",
+    "unity-4.6-compat"
+  ],
+  "blacklist": [],
+  "notes": "Experimental profile for Regular Show: Best Park in the Universe (Unity 4.6.1f1 target)."
+}
