@@ -1,7 +1,7 @@
 {
-  "created_at": "2026-10-29T18:00:52",
-  "description": "## [1.33.5](https://github.com/Jacqueb-1337/project-v7/compare/v1.33.4...v1.33.5) (2026-10-29)\n\n\n### Bug Fixes\n\n* **pv7:** detect Cocos2d-x and isolate Morphe patch sources ([d2c9e37](https://github.com/Jacqueb-1337/project-v7/commit/d2c9e37d7fe2cf74dd73ac1c61c5e63195a5de0b))",
-  "download_url": "https://github.com/Jacqueb-1337/project-v7/releases/download/v1.33.5/project-v7-patcher-1.33.5.apk",
-  "signature_download_url": "https://github.com/Jacqueb-1337/project-v7/releases/download/v1.33.5/project-v7-patcher-1.33.5.apk.asc",
-  "version": "1.33.5"
+  "created_at": "2026-10-29T18:13:38",
+  "description": "# [1.34.0](https://github.com/Jacqueb-1337/project-v7/compare/v1.33.5...v1.34.0) (2026-10-29)\n\n\n### Features\n\n* **pv7:** expose private shared guest storage via Android Files ([b9eb130](https://github.com/Jacqueb-1337/project-v7/commit/b9eb13077c939cd214b2a972950d933911d00fe2))",
+  "download_url": "https://github.com/Jacqueb-1337/project-v7/releases/download/v1.34.0/project-v7-patcher-1.34.0.apk",
+  "signature_download_url": "https://github.com/Jacqueb-1337/project-v7/releases/download/v1.34.0/project-v7-patcher-1.34.0.apk.asc",
+  "version": "1.34.0"
 }
