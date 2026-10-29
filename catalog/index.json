@@ -9,7 +9,7 @@
     ],
     "profiles": [
         "profiles/com.joydo.minestrikenew/3.0.2.json",
-        "profiles/com.turner.bestparkintheuniverse/1.2.0.json"
+        "profiles/com.turner.bestparkintheuniverse/1.1.6.json"
     ],
     "apps": [
         "apps/com.joydo.minestrikenew.json",
