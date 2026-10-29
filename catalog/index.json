@@ -3,16 +3,19 @@
     "modules": [
         "modules/games/com.joydo.minestrikenew/cnr-compat/module.json",
         "modules/games/com.turner.bestparkintheuniverse/rs-compat/module.json",
+        "modules/games/com.turner.ghosttoasters/gt-compat/module.json",
         "modules/general/core-compat/module.json",
         "modules/general/launcher-icon/module.json",
         "modules/general/launcher-display-name/module.json"
     ],
     "profiles": [
         "profiles/com.joydo.minestrikenew/3.0.2.json",
-        "profiles/com.turner.bestparkintheuniverse/1.1.6.json"
+        "profiles/com.turner.bestparkintheuniverse/1.1.6.json",
+        "profiles/com.turner.ghosttoasters/1.1.6.json"
     ],
     "apps": [
         "apps/com.joydo.minestrikenew.json",
-        "apps/com.turner.bestparkintheuniverse.json"
+        "apps/com.turner.bestparkintheuniverse.json",
+        "apps/com.turner.ghosttoasters.json"
     ]
 }
