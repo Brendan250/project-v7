@@ -1,0 +1,6 @@
+{
+    "schemaVersion": 1,
+    "packageName": "com.turner.ghosttoasters",
+    "displayName": "Ghost Toasters",
+    "defaultProfile": "profiles/com.turner.ghosttoasters/1.1.6.json"
+}
