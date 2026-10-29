@@ -1,3 +1,10 @@
+## [1.33.4](https://github.com/Jacqueb-1337/project-v7/compare/v1.33.3...v1.33.4) (2026-10-29)
+
+
+### Bug Fixes
+
+* **android:** give Project V7 an independent app identity ([682f93f](https://github.com/Jacqueb-1337/project-v7/commit/682f93f4a24b9d008365abc1e9a714f920029dbc))
+
 ## [1.33.3](https://github.com/Jacqueb-1337/project-v7/compare/v1.33.2...v1.33.3) (2026-10-29)
 
 
