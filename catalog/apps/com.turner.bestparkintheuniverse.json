@@ -1,9 +1,6 @@
 {
-  "packageName": "com.turner.bestparkintheuniverse",
-  "displayName": "Regular Show: Best Park in the Universe",
-  "recommendedVersion": "1.1.6",
-  "versions": ["1.1.6"],
-  "downloadUrl": "",
-  "iconUrl": "",
-  "pinnedByDefault": false
+    "schemaVersion": 1,
+    "packageName": "com.turner.bestparkintheuniverse",
+    "displayName": "Regular Show: Best Park in the Universe",
+    "defaultProfile": "profiles/com.turner.bestparkintheuniverse/1.1.6.json"
 }
