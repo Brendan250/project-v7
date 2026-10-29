@@ -1,7 +1,7 @@
 {
-  "id": "regularshow-bestpark-1.2.0-untested",
+  "id": "regularshow-bestpark-1.1.6-untested",
   "packageId": "com.turner.bestparkintheuniverse",
-  "versions": ["1.2.0"],
+  "versions": ["1.1.6"],
   "abis": ["armeabi-v7a"],
   "engines": ["unity"],
   "engineVersions": ["4.6.1f1"],
