@@ -1,3 +1,10 @@
+# [1.35.0](https://github.com/Jacqueb-1337/project-v7/compare/v1.34.0...v1.35.0) (2026-10-29)
+
+
+### Features
+
+* **pv7:** stage and inspect ARM32 Cocos2d-x guests ([0478131](https://github.com/Jacqueb-1337/project-v7/commit/047813194e2396929d8c4fec5330f4fa13126b8e))
+
 # [1.34.0](https://github.com/Jacqueb-1337/project-v7/compare/v1.33.5...v1.34.0) (2026-10-29)
 
 
