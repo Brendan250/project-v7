@@ -1,3 +1,10 @@
+# [1.34.0](https://github.com/Jacqueb-1337/project-v7/compare/v1.33.5...v1.34.0) (2026-10-29)
+
+
+### Features
+
+* **pv7:** expose private shared guest storage via Android Files ([b9eb130](https://github.com/Jacqueb-1337/project-v7/commit/b9eb13077c939cd214b2a972950d933911d00fe2))
+
 ## [1.33.5](https://github.com/Jacqueb-1337/project-v7/compare/v1.33.4...v1.33.5) (2026-10-29)
 
 
