@@ -1,7 +1,7 @@
 {
-  "created_at": "2026-10-29T14:18:21",
-  "description": "## [1.33.3](https://github.com/Jacqueb-1337/project-v7/compare/v1.33.2...v1.33.3) (2026-10-29)\n\n\n### Bug Fixes\n\n* **pv7:** accept experimental APKs and generalize Unity 4.6 policy ([68123df](https://github.com/Jacqueb-1337/project-v7/commit/68123df70054050b8f0248b704750f4c16c47115))\n* **pv7:** correct inherited update routing and source compatibility warnings ([5f50c5b](https://github.com/Jacqueb-1337/project-v7/commit/5f50c5b8a74efe65df75df95665022e9bcc4a8f2))\n* **release:** correctly terminate GPG passphrase input ([9048326](https://github.com/Jacqueb-1337/project-v7/commit/9048326b894f05354bf23e7223d6d6fe71fe2b99))\n* **release:** decouple PV7 publishing and signing from Morphe ([5429c24](https://github.com/Jacqueb-1337/project-v7/commit/5429c24c570080a191b23e3a83c9f8786ad15a1d))\n* **release:** validate OpenPGP unlock before PV7 production builds ([74b653b](https://github.com/Jacqueb-1337/project-v7/commit/74b653bcfe5544f2c67f0c82d86abc75b1dbf3c0))",
-  "download_url": "https://github.com/Jacqueb-1337/project-v7/releases/download/v1.33.3/project-v7-patcher-1.33.3.apk",
-  "signature_download_url": "https://github.com/Jacqueb-1337/project-v7/releases/download/v1.33.3/project-v7-patcher-1.33.3.apk.asc",
-  "version": "1.33.3"
+  "created_at": "2026-10-29T14:46:31",
+  "description": "## [1.33.4](https://github.com/Jacqueb-1337/project-v7/compare/v1.33.3...v1.33.4) (2026-10-29)\n\n\n### Bug Fixes\n\n* **android:** give Project V7 an independent app identity ([682f93f](https://github.com/Jacqueb-1337/project-v7/commit/682f93f4a24b9d008365abc1e9a714f920029dbc))",
+  "download_url": "https://github.com/Jacqueb-1337/project-v7/releases/download/v1.33.4/project-v7-patcher-1.33.4.apk",
+  "signature_download_url": "https://github.com/Jacqueb-1337/project-v7/releases/download/v1.33.4/project-v7-patcher-1.33.4.apk.asc",
+  "version": "1.33.4"
 }
