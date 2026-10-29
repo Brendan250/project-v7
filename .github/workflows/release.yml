@@ -1,121 +1,36 @@
-name: Release Project V7
+name: Build Patcher APK
 
 on:
   workflow_dispatch:
   push:
     branches:
       - main
-
-permissions:
-  contents: write
-  packages: read
-  id-token: write
-  attestations: write
-
-concurrency:
-  group: pv7-production-release
-  cancel-in-progress: false
+  pull_request:
 
 jobs:
-  release:
-    name: Sign and publish PV7
+  build:
+    name: Build Debug APK
     runs-on: ubuntu-latest
+
     steps:
-      - name: Check production signing configuration
-        id: prerequisites
-        env:
-          KEYSTORE_B64: ${{ secrets.KEYSTORE_B64 }}
-          KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
-          KEYSTORE_ENTRY_ALIAS: ${{ secrets.KEYSTORE_ENTRY_ALIAS }}
-          KEYSTORE_ENTRY_PASSWORD: ${{ secrets.KEYSTORE_ENTRY_PASSWORD }}
-          GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
-          GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
-          GPG_FINGERPRINT: ${{ vars.GPG_FINGERPRINT }}
-        shell: bash
-        run: |
-          set -euo pipefail
-          missing=()
-          for key in KEYSTORE_B64 KEYSTORE_PASSWORD KEYSTORE_ENTRY_ALIAS KEYSTORE_ENTRY_PASSWORD GPG_PRIVATE_KEY GPG_PASSPHRASE GPG_FINGERPRINT; do
-            if [[ -z "${!key}" ]]; then missing+=("$key"); fi
-          done
-          if (( ${#missing[@]} )); then
-            echo "::notice::PV7 production release not configured. Missing: ${missing[*]}. No APK or update metadata will be published."
-            echo "ready=false" >> "$GITHUB_OUTPUT"
-            if [[ "$GITHUB_EVENT_NAME" == "workflow_dispatch" ]]; then
-              echo "::error::A manually requested production release requires all signing credentials."
-              exit 1
-            fi
-            exit 0
-          fi
-          echo "ready=true" >> "$GITHUB_OUTPUT"
-
-      - name: Checkout
-        if: steps.prerequisites.outputs.ready == 'true'
+      - name: Checkout Code
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
 
-      - name: Setup Java
-        if: steps.prerequisites.outputs.ready == 'true'
+      - name: Set up Java JDK
         uses: actions/setup-java@v4
         with:
-          distribution: temurin
+          distribution: 'temurin'
           java-version: '21'
 
-      - name: Restore and validate PV7 Android signing keystore
-        if: steps.prerequisites.outputs.ready == 'true'
-        shell: bash
-        env:
-          KEYSTORE_B64: ${{ secrets.KEYSTORE_B64 }}
-          KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
-          KEYSTORE_ENTRY_ALIAS: ${{ secrets.KEYSTORE_ENTRY_ALIAS }}
-        run: |
-          set -euo pipefail
-          printf '%s' "$KEYSTORE_B64" | base64 --decode > app/keystore.jks
-          if ! keytool -list -keystore app/keystore.jks -storepass:env KEYSTORE_PASSWORD -alias "$KEYSTORE_ENTRY_ALIAS" >/dev/null 2>&1; then
-            echo "::error::PV7 Android signing keystore is invalid, unreadable, or missing its configured alias."
-            exit 1
-          fi
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v3
 
-      - name: Cache Gradle
-        if: steps.prerequisites.outputs.ready == 'true'
-        uses: burrunan/gradle-cache-action@v3
+      - name: Build Debug APK
+        run: ./gradlew assembleDebug --no-daemon
 
-      - name: Setup Node
-        if: steps.prerequisites.outputs.ready == 'true'
-        uses: actions/setup-node@v4
+      - name: Upload APK Artifact
+        uses: actions/upload-artifact@v4
         with:
-          node-version: lts/*
-          cache: npm
-
-      - name: Install release dependencies
-        if: steps.prerequisites.outputs.ready == 'true'
-        run: npm ci
-
-      - name: Import PV7 GPG signing key
-        if: steps.prerequisites.outputs.ready == 'true'
-        uses: crazy-max/ghaction-import-gpg@v7
-        with:
-          gpg_private_key: ${{ secrets.GPG_PRIVATE_KEY }}
-          passphrase: ${{ secrets.GPG_PASSPHRASE }}
-          fingerprint: ${{ vars.GPG_FINGERPRINT }}
-
-      - name: Publish signed PV7 release
-        if: steps.prerequisites.outputs.ready == 'true'
-        uses: cycjimmy/semantic-release-action@v6
-        id: release
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
-          KEYSTORE_ENTRY_ALIAS: ${{ secrets.KEYSTORE_ENTRY_ALIAS }}
-          KEYSTORE_ENTRY_PASSWORD: ${{ secrets.KEYSTORE_ENTRY_PASSWORD }}
-          GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
-          GPG_FINGERPRINT: ${{ vars.GPG_FINGERPRINT }}
-
-      - name: Attest APK provenance
-        if: steps.release.outputs.new_release_published == 'true'
-        uses: actions/attest-build-provenance@v4
-        with:
-          subject-name: Project V7 Patcher ${{ steps.release.outputs.new_release_git_tag }}
-          subject-path: app/build/outputs/apk/release/project-v7-patcher-*.apk
+          name: project-v7-patcher
+          path: app/build/outputs/apk/debug/*.apk
           
