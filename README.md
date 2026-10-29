@@ -110,6 +110,15 @@ A bundle's `Patcher-Version` requirement describes the **underlying patch engine
 
 You can [check Project V7 releases](https://github.com/Jacqueb-1337/project-v7/releases) for a compatible engine or choose a different patch source. Installing Morphe Manager would **not** update Project V7. Project V7's own game compatibility modules live in the [catalog](catalog/README.md).
 
+## Guest storage and OBB expansion files
+
+Every PV7-generated wrapper exposes **PV7 Game Storage** in Android's Files
+picker, with **obb**, **data**, **cache** and **files** all stored under
+one app-private `GuestSharedStorage` directory. This does not grant access to other apps'
+protected directories or make unsupported engines playable.
+
+See [guest storage and OBB mapping](docs/guest-storage.md).
+
 ## Native compatibility backends
 
 PV7's catalog can accept game entries for many Android APKs, but its current
