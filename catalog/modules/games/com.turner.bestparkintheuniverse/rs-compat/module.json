@@ -1,0 +1,11 @@
+{
+    "schemaVersion": 1,
+    "id": "com.turner.bestparkintheuniverse.rs-compat",
+    "name": "Regular Show Unity 4.6 Compatibility",
+    "description": "Applies private-storage and legacy Unity 4.6 compatibility fixes for Regular Show: Best Park in the Universe.",
+    "version": "1.0.0",
+    "targetPackage": "com.turner.bestparkintheuniverse",
+    "dependencies": [
+        "modules/general/core-compat/module.json"
+    ]
+}
