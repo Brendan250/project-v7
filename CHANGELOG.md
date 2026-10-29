@@ -1,3 +1,10 @@
+## [1.33.5](https://github.com/Jacqueb-1337/project-v7/compare/v1.33.4...v1.33.5) (2026-10-29)
+
+
+### Bug Fixes
+
+* **pv7:** detect Cocos2d-x and isolate Morphe patch sources ([d2c9e37](https://github.com/Jacqueb-1337/project-v7/commit/d2c9e37d7fe2cf74dd73ac1c61c5e63195a5de0b))
+
 ## [1.33.4](https://github.com/Jacqueb-1337/project-v7/compare/v1.33.3...v1.33.4) (2026-10-29)
 
 
