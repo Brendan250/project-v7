@@ -1,7 +1,7 @@
 {
-  "created_at": "2026-10-29T18:44:52",
-  "description": "# [1.35.0](https://github.com/Jacqueb-1337/project-v7/compare/v1.34.0...v1.35.0) (2026-10-29)\n\n\n### Features\n\n* **pv7:** stage and inspect ARM32 Cocos2d-x guests ([0478131](https://github.com/Jacqueb-1337/project-v7/commit/047813194e2396929d8c4fec5330f4fa13126b8e))",
-  "download_url": "https://github.com/Jacqueb-1337/project-v7/releases/download/v1.35.0/project-v7-patcher-1.35.0.apk",
-  "signature_download_url": "https://github.com/Jacqueb-1337/project-v7/releases/download/v1.35.0/project-v7-patcher-1.35.0.apk.asc",
-  "version": "1.35.0"
+  "created_at": "2026-10-30T21:54:49",
+  "description": "# [1.36.0](https://github.com/Jacqueb-1337/project-v7/compare/v1.35.0...v1.36.0) (2026-10-30)\n\n\n### Features\n\n* **pv7:** release generic guest storage, Cocos staging and native ABI parity ([d5a0dc3](https://github.com/Jacqueb-1337/project-v7/commit/d5a0dc35608630f0226f2c3ac51fd37a6c7693d9))",
+  "download_url": "https://github.com/Jacqueb-1337/project-v7/releases/download/v1.36.0/project-v7-patcher-1.36.0.apk",
+  "signature_download_url": "https://github.com/Jacqueb-1337/project-v7/releases/download/v1.36.0/project-v7-patcher-1.36.0.apk.asc",
+  "version": "1.36.0"
 }
