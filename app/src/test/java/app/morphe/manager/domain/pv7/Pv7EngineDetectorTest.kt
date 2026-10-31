@@ -1,5 +1,7 @@
 package app.morphe.manager.domain.pv7
 
+import java.io.ByteArrayInputStream
+import org.junit.Assert.assertNull
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertFalse
 import org.junit.Assert.assertTrue
@@ -60,4 +62,30 @@ class Pv7EngineDetectorTest {
         assertFalse(Pv7GuestBackend.canBuild(newer))
         assertFalse(Pv7GuestBackend.canBuild(Pv7AppTarget("any", "1", setOf("armeabi"), null)))
     }
+    @Test fun detectsHistoricalCocosVersionStrings() {
+        val historical = "prefix\u0000cocos2d-2.1rc0-x-2.1.2\u0000suffix".toByteArray()
+        val detected = Pv7EngineDetector.scanCocosNative(
+            ByteArrayInputStream(historical), historical.size.toLong())
+        assertEquals("cocos2d-2.1rc0-x-2.1.2", detected.version)
+        val modern = "cocos2d-x 2.2.6\u0000".toByteArray()
+        assertEquals("cocos2d-x 2.2.6", Pv7EngineDetector.scanCocosNative(
+            ByteArrayInputStream(modern), modern.size.toLong()).version)
+    }
+
+    @Test fun doesNotGuessCocosVersionFromSymbols() {
+        val data = "_ZN7cocos2d14cocos2dVersionEv\u0000".toByteArray()
+        val found = Pv7EngineDetector.scanCocosNative(
+            ByteArrayInputStream(data), data.size.toLong())
+        assertNull(found.version)
+        assertTrue(found.nativeSignature)
+    }
+
+    @Test fun detectsVersionInsideOriginalApkLibrary() {
+        val apk = fakeApk("lib/armeabi-v7a/libgame.so" to
+            "binary data\u0000cocos2d-2.1rc0-x-2.1.2\u0000")
+        val found = Pv7EngineDetector.detect(apk)
+        assertEquals("cocos2dx", found?.id)
+        assertEquals("cocos2d-2.1rc0-x-2.1.2", found?.version)
+    }
+
 }

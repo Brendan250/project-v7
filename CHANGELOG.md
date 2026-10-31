@@ -1,3 +1,10 @@
+# [1.36.0](https://github.com/Jacqueb-1337/project-v7/compare/v1.35.0...v1.36.0) (2026-10-30)
+
+
+### Features
+
+* **pv7:** release generic guest storage, Cocos staging and native ABI parity ([d5a0dc3](https://github.com/Jacqueb-1337/project-v7/commit/d5a0dc35608630f0226f2c3ac51fd37a6c7693d9))
+
 # [1.35.0](https://github.com/Jacqueb-1337/project-v7/compare/v1.34.0...v1.35.0) (2026-10-29)
 
 
